@@ -1,0 +1,5 @@
+ docker build -t centos:v2 .
+   docker images
+   #docker run -it -p 80:80 7bedff6b60df /bin/bash
+    docker system prune
+ docker run -it -p 80:80 centos:v2 /bin/bash
