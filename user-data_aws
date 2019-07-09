@@ -1,0 +1,10 @@
+#user data that uses the docker hub repo and creates a static website up and running as soon as instance is up
+
+#!/bin/bash
+yum install docker -y
+
+systemctl start docker
+
+chkconfig docker enable
+
+docker run -p 80:80 milind0412/centos_git_httpd:v3
