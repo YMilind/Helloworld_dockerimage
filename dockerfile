@@ -8,6 +8,8 @@ RUN git clone https://github.com/YMilind/html.git /var/www/html/
 
 
 EXPOSE 80
+RUN chkconfig httpd on
+
 
 CMD [ "/usr/sbin/httpd", "-D","FOREGROUND"]
 
