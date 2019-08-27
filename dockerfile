@@ -3,16 +3,15 @@ FROM centos:latest
 RUN yum update -y
 
  
-RUN yum install git awscli -y 
+RUN yum install awscli -y 
 RUN yum install httpd -y
-#RUN git clone https://github.com/YMilind/html.git /var/www/html/
-RUN aws s3 cp s3://d3jslearning/index.html /var/www/html/index.html 
-
+WORKDIR /opt/apache/scripts/
+COPY ./execute.sh /opt/apache/scripts/
 EXPOSE 80
+ENTRYPOINT ["/bin/bash","/opt/apache/scripts/execute.sh"]
 RUN chkconfig httpd on
 
 
-CMD [ "/usr/sbin/httpd", "-D","FOREGROUND"]
 
 
 
